@@ -2,8 +2,19 @@
 <head>
 	<title>Mars Rover Kata!</title>
 	<script type="text/javascript" src="rover.js"></script>
+	<style>
+		.send-command {
+			position:fixed;
+			bottom:10px;
+		}
+	</style>
 </head>
 <body>
-
+	<h1>Mars Rover</h1>
+	<div id='roverMoves'></div>
+	<div class='send-command' id='controls'>
+		<input type="text">
+		<input type="submit" value="Send Command">
+	</div>
 </body>
 </html>
