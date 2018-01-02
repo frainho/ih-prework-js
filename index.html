@@ -1,7 +1,6 @@
 <html>
 <head>
 	<title>Mars Rover Kata!</title>
-	<script type="text/javascript" src="rover.js"></script>
 	<style>
 		.send-command {
 			position:fixed;
@@ -11,10 +10,12 @@
 </head>
 <body>
 	<h1>Mars Rover</h1>
+	<p>Instructions: Use f or b to move rover forward or backwards and r of l to turn it either right or left</p>
 	<div id='roverMoves'></div>
 	<div class='send-command' id='controls'>
-		<input type="text">
-		<input type="submit" value="Send Command">
+		<input type="text" name='commands'>
+		<input type="submit" value="Send Command" onclick='go(document.getElementsByName("commands")[0].value)'>
 	</div>
+	<script type="text/javascript" src="rover.js"></script>
 </body>
 </html>

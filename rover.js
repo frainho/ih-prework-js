@@ -1,5 +1,4 @@
-window.onload = function() {
-  //Create Rover object
+//Create Rover object
 var myRover = {
   position: [0, 0],
   direction: 'N'
@@ -41,7 +40,7 @@ function startRover() {
      myRover.position = [Math.floor(Math.random() * 10 + 1), Math.floor(Math.random() * 10 + 1)];
     }
   }
-  roverActions.innerHTML += 'Rover initiated, currently at position: [' + myRover.position[0] + ", " + myRover.position[1] + '] and facing: ' + myRover.direction;
+  roverActions.innerHTML += '<p>Rover initiated, currently at position: [' + myRover.position[0] + ", " + myRover.position[1] + '] and facing: ' + myRover.direction + '</p>';
 }
 
 startObstacles();
@@ -52,7 +51,7 @@ function obstacleDetection(currentPosition) {
     case 'N':
       for (var objN in obstacles) {
         if (currentPosition[0] - 1 == obstacles[objN][0] && currentPosition[1] == obstacles[objN][1]) {
-          roverActions.innerHTML += "There's something in my path, I found a " + objN + " Initiating destruction protocol..... Object destroyed!";
+          roverActions.innerHTML += "<p>There's something in my path, I found a " + objN + " Initiating destruction protocol..... Object destroyed!</p>";
           obstacles[objN] = 'Destroyed';
         }
       }
@@ -60,7 +59,7 @@ function obstacleDetection(currentPosition) {
     case 'E':
       for (var objE in obstacles) {
         if (currentPosition[1] + 1 == obstacles[objE][1] && currentPosition[0] == obstacles[objE][0]) {
-          roverActions.innerHTML += "There's something in my path, I found a " + objE + " Initiating destruction protocol..... Object destroyed!";
+          roverActions.innerHTML += "<p>There's something in my path, I found a " + objE + " Initiating destruction protocol..... Object destroyed!</p>";
           obstacles[objE] = 'Destroyed';
         }
       }
@@ -68,7 +67,7 @@ function obstacleDetection(currentPosition) {
     case 'S':
       for (var objS in obstacles) {
         if (currentPosition[0] + 1 == obstacles[objS][0] && currentPosition[1] == obstacles[objS][1]) {
-          roverActions.innerHTML += "There's something in my path, I found a " + objS + " Initiating destruction protocol..... Object destroyed!" ;
+          roverActions.innerHTML += "<p>There's something in my path, I found a " + objS + " Initiating destruction protocol..... Object destroyed!</p>" ;
           obstacles[objS] = 'Destroyed';
         }
       }
@@ -76,7 +75,7 @@ function obstacleDetection(currentPosition) {
     case 'W':
       for (var objW in obstacles) {
         if (currentPosition[1] - 1 == obstacles[objW][1] && currentPosition[0] == obstacles[objW][0]) {
-          roverActions.innerHTML += "There's something in my path, I found a " + objW + " Initiating destruction protocol..... Object destroyed!";
+          roverActions.innerHTML += "<p>There's something in my path, I found a " + objW + " Initiating destruction protocol..... Object destroyed!</p>";
           obstacles[objW] = 'Destroyed';
         }
       }
@@ -111,7 +110,7 @@ function goForward(rover) {
     rover.position[0] = 1;
   }
 
-  roverActions.innerHTML += "Forward Move - New Rover Position: [" + rover.position[0] + ", " + rover.position[1] + "]";
+  roverActions.innerHTML += "<p>Forward Move - New Rover Position: [" + rover.position[0] + ", " + rover.position[1] + "]</p>";
 }
 
 //Function to move back rover
@@ -140,7 +139,7 @@ function goBack(rover) {
     rover.position[0] = 1;
   }
 
-  roverActions.innerHTML += "Backward Move - New Rover Position: [" + rover.position[0] + ", " + rover.position[1] + "]";
+  roverActions.innerHTML += "<p>Backward Move - New Rover Position: [" + rover.position[0] + ", " + rover.position[1] + "]</p>";
 }
 
 //Function to move rover left
@@ -155,7 +154,7 @@ function turnLeft(rover) {
     rover.direction = 'N';
   }
 
-  roverActions.innerHTML += 'I am now facing: ' + rover.direction;
+  roverActions.innerHTML += '<p>I am now facing: ' + rover.direction + '</p>';
 }
 //Function to move rover right
 function turnRight(rover) {
@@ -169,7 +168,7 @@ function turnRight(rover) {
     rover.direction = 'N';
   }
 
-  roverActions.innerHTML += 'I am now facing: ' + rover.direction;
+  roverActions.innerHTML += '<p>I am now facing: ' + rover.direction + '</p>';
 }
 
 function go(moves) {
@@ -188,10 +187,7 @@ function go(moves) {
       turnRight(myRover);
       obstacleDetection(myRover.position);
     } else {
-      roverActions.innerHTML += 'Wrong instruction received, bypassing';
+      roverActions.innerHTML += '<p>Wrong instruction received, ignoring</p>';
     }
   }
 }
-
-}
-
